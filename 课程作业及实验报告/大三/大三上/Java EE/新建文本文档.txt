@@ -1,0 +1,7 @@
+一个文件夹对应一个功能
+每个文件夹里有四个板块
+Beans连接数据库
+Controller进行操作
+Service 
+
+Utils 工具集

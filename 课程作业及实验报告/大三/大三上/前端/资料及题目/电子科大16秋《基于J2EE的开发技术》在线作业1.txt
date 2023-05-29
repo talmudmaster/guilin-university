@@ -1,0 +1,129 @@
+电子科技大学电子科大16秋《基于J2EE的开发技术》在线作业1
+
+
+
+
+一、单选题（共 20 道试题，共 100 分。）
+
+1.  Servlet程序的入口点是： 。
+A. init（）
+B. main（）
+C. service（）
+D. doGet（）
+正确答案：
+2.  下列那个jsp标记用于得到一个javabean的属性
+A. jsp:useBean
+B. jsp:useBean.property
+C. jsp:useBean.getProperty
+D. jsp: getProperty
+正确答案：
+3.  下述选项中不属于JDBC基本功能的是
+A. 与数据库建立连接
+B. 提交SQL语句
+C. 处理查询结果
+D. 数据库维护管理
+正确答案：
+4.  下面那个表达式表示会话永不过期
+A. setTimeout(0)
+B. setTimeout(-1)
+C. setMaxInactiveInterval(0)
+D. setMaxInactiveInterval(-1)
+正确答案：
+5.  JSP 页面经过编译之后，将创建一个
+A. applet
+B. severlet
+C. application
+D. exe文件
+正确答案：
+6.  在Jdbc中可以调用数据库的存储过程的接口是
+A. Statement
+B. PreparedStatement
+C. CallableStatement
+D. PrepareStatement
+正确答案：
+7.  下面哪一个是正确使用JavaBean的方式？
+A. <jsp:useBean id="address" class="AddressBean" />
+B. <jsp:useBean name="address" class="AddressBean"/>
+C. <jsp:useBean bean="address" class="AddressBean" />
+D. <jsp:useBean beanName="address" class="AddressBean" />
+正确答案：
+8.  如果数据库中某个字段为numberic型，可以通过结果集中的哪个方法获取
+A. getNumberic()
+B. getDouble()
+C. setNumberic()
+D. setDouble()
+正确答案：
+9.  下列哪一个方法用于设置HttpServletResponse的内容类型？
+A. setParameter
+B. setContentType
+C. setAttribute
+D. doPost
+正确答案：
+10.  下列哪一个JSP标记是正确的 ？
+A. <%@ include page=”notice.html” %>
+B. <jsp:include file=”notice.html” />
+C. <jsp:include page=”notice.html” />
+D. <%! include file=”notice.html” %>
+正确答案：
+11.  在JDBC中使用事务，想要回滚事务的方法是
+A. Connection的commit()
+B. Connection的setAutoCommit()
+C. Connection的rollback()
+D. Connection的close()
+正确答案：
+12.  配置JSP运行环境，若WEB应用服务器选用TOMCAT，以下说法正确的是
+A. 先安装TOMCAT，再安装JDK
+B. 先安装JDK，再安装TOMCAT
+C. 不需安装JDK，安装TOMCAT就可以了
+D. JDK和TOMCAT只要都安装就可以了，安装顺序没关系
+正确答案：
+13.  看下列jsp标签 下列那个说法是正确的
+A. 在jsp被请求时，top.jsp被包含进来
+B. 在jsp被转换编译时，不将top.jsp包含进来
+C. 在jsp被转换编译时，top.jsp和copyright.jsp都被包含进来
+D. 只有copyright.jsp在请求该JSP资源时被包含进来
+正确答案：
+14.  下列关于Tomcat个目录说法错误的是
+A. bin目录：包含启动/关闭脚本
+B. conf目录：包含不同的配置文件
+C. Lib目录：包含Tomcat使用的JAR文件
+D. work目录：包含web项目示例，当发布web应用时，默认情况下把web文件夹放于此目录下
+正确答案：
+15.  向客户端发送一个pdf文档，设置文档类型时，下列那个语句是正确的
+A. response.setContentType(“application/pdf”)
+B. response.setType(“application/pdf”)
+C. response.setContentType(“application/bin”)
+D. response.setType(“application/bin”)
+正确答案：
+16.  在jsp页面中导入java.util包，使用下列哪个标记
+A. <%@ import =”java.util.*” %>
+B. <%@ import =”java.util.*” @%>
+C. <%@ page import =”java.util.*” %>
+D. <%@ page java =”java.util.*” %>
+正确答案：
+17.  下面关于page指令说法中错误的是
+A. page指令用来定义JSP页面中的全局属性
+B. 一个JSP页面只能包含一个page指令
+C. 除了import外，其他page指令定义的属性/值只能出现一次。
+D. language属性用来指示所使用的语言，“java”是当前唯一可用的JSP语言
+正确答案：
+18.  下面哪个jsp隐含对象可以实现多次请求共享（选择两个答案）
+A. page
+B. request
+C. get
+D. applicatio
+正确答案：
+19.  下面的描述错误的是
+A. Statement的executeQuery()方法会返回一个结果集
+B. Statement的executeUpdate()方法会返回是否更新成功的boolean值
+C. 使用ResultSet中的getString()可以获得一个对应于数据库中char类型的值
+D. ResultSet中的next()方法会使结果集中的下一行成为当前行
+正确答案：
+20.  下列说法中错误的是
+A. <!-- This file displays the user login screen -->会在客户端的HTML源代码中产生和上面一样的数据
+B. <%-- This comment will not be visible in the page source --%>会在客户端的HTML源代码中产生和上面一样的数据
+C. <%! int i = 0; %>是一个合法的变量声明
+D. 表达式元素表示的是一个在脚本语言中被定义的表达式。
+正确答案：
+
+

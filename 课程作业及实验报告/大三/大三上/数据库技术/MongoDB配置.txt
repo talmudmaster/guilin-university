@@ -1,0 +1,6 @@
+第一步：pip install -i http://pypi.douban.com/simple pymongo --trusted-host pypi.douban.com
+第二步：python -m pip install pipenv
+第三步：pipenv shell
+第四步：set flask_app=main.py
+第五步：flask run
+第六步：http://127.0.0.1:5000/

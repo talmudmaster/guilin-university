@@ -1,0 +1,565 @@
+{
+	"_type": "Project",
+	"_id": "AAAAAAFF+h6SjaM2Hec=",
+	"name": "Untitled",
+	"ownedElements": [
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAFF+qBWK6M3Z8Y=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Model",
+			"ownedElements": [
+				{
+					"_type": "UMLClassDiagram",
+					"_id": "AAAAAAFF+qBtyKM79qY=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "Main",
+					"defaultDiagram": true,
+					"ownedViews": [
+						{
+							"_type": "UMLClassView",
+							"_id": "AAAAAAGARbSQ83UQapA=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"model": {
+								"$ref": "AAAAAAGARbSQ8XUOPKU="
+							},
+							"subViews": [
+								{
+									"_type": "UMLNameCompartmentView",
+									"_id": "AAAAAAGARbSQ83UR1Xo=",
+									"_parent": {
+										"$ref": "AAAAAAGARbSQ83UQapA="
+									},
+									"model": {
+										"$ref": "AAAAAAGARbSQ8XUOPKU="
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGARbSQ83USl/E=",
+											"_parent": {
+												"$ref": "AAAAAAGARbSQ83UR1Xo="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"left": -16,
+											"height": 13
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGARbSQ83UTeSE=",
+											"_parent": {
+												"$ref": "AAAAAAGARbSQ83UR1Xo="
+											},
+											"font": "Arial;13;1",
+											"left": 149,
+											"top": 151,
+											"width": 191,
+											"height": 13,
+											"text": "考试"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGARbSQ9HUUl4Q=",
+											"_parent": {
+												"$ref": "AAAAAAGARbSQ83UR1Xo="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"left": -16,
+											"width": 73.67724609375,
+											"height": 13,
+											"text": "(from Model)"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGARbSQ9HUVy7o=",
+											"_parent": {
+												"$ref": "AAAAAAGARbSQ83UR1Xo="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"left": -16,
+											"height": 13,
+											"horizontalAlignment": 1
+										}
+									],
+									"font": "Arial;13;0",
+									"left": 144,
+									"top": 144,
+									"width": 201,
+									"height": 25,
+									"stereotypeLabel": {
+										"$ref": "AAAAAAGARbSQ83USl/E="
+									},
+									"nameLabel": {
+										"$ref": "AAAAAAGARbSQ83UTeSE="
+									},
+									"namespaceLabel": {
+										"$ref": "AAAAAAGARbSQ9HUUl4Q="
+									},
+									"propertyLabel": {
+										"$ref": "AAAAAAGARbSQ9HUVy7o="
+									}
+								},
+								{
+									"_type": "UMLAttributeCompartmentView",
+									"_id": "AAAAAAGARbSQ9HUW8OI=",
+									"_parent": {
+										"$ref": "AAAAAAGARbSQ83UQapA="
+									},
+									"model": {
+										"$ref": "AAAAAAGARbSQ8XUOPKU="
+									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGARbUiaXU9lcY=",
+											"_parent": {
+												"$ref": "AAAAAAGARbSQ9HUW8OI="
+											},
+											"model": {
+												"$ref": "AAAAAAGARbUiWXU6Kpw="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 174,
+											"width": 191,
+											"height": 13,
+											"text": "+考场号",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGARbU+nnVJBfI=",
+											"_parent": {
+												"$ref": "AAAAAAGARbSQ9HUW8OI="
+											},
+											"model": {
+												"$ref": "AAAAAAGARbU+kHVGD9k="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 189,
+											"width": 191,
+											"height": 13,
+											"text": "+考试时间",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGARbVBIXVPZok=",
+											"_parent": {
+												"$ref": "AAAAAAGARbSQ9HUW8OI="
+											},
+											"model": {
+												"$ref": "AAAAAAGARbVBGHVMGwY="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 204,
+											"width": 191,
+											"height": 13,
+											"text": "+考试科目",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGARbgGgHVYnMg=",
+											"_parent": {
+												"$ref": "AAAAAAGARbSQ9HUW8OI="
+											},
+											"model": {
+												"$ref": "AAAAAAGARbgGeHVVv1k="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 219,
+											"width": 191,
+											"height": 13,
+											"text": "+年级专业班级",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGARbicp3Vf0nM=",
+											"_parent": {
+												"$ref": "AAAAAAGARbSQ9HUW8OI="
+											},
+											"model": {
+												"$ref": "AAAAAAGARbicoHVc9Z8="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 234,
+											"width": 191,
+											"height": 13,
+											"text": "+监考员",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGARboHMXVmrJA=",
+											"_parent": {
+												"$ref": "AAAAAAGARbSQ9HUW8OI="
+											},
+											"model": {
+												"$ref": "AAAAAAGARboHKHVjEUg="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 249,
+											"width": 191,
+											"height": 13,
+											"text": "+开考方式",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGARcXdT3WUbo0=",
+											"_parent": {
+												"$ref": "AAAAAAGARbSQ9HUW8OI="
+											},
+											"model": {
+												"$ref": "AAAAAAGARcXdR3WR2P4="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 264,
+											"width": 191,
+											"height": 13,
+											"text": "+参加考试学生名单",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"left": 144,
+									"top": 169,
+									"width": 201,
+									"height": 113
+								},
+								{
+									"_type": "UMLOperationCompartmentView",
+									"_id": "AAAAAAGARbSQ9HUXzpU=",
+									"_parent": {
+										"$ref": "AAAAAAGARbSQ83UQapA="
+									},
+									"model": {
+										"$ref": "AAAAAAGARbSQ8XUOPKU="
+									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGARbUsQXVDFeI=",
+											"_parent": {
+												"$ref": "AAAAAAGARbSQ9HUXzpU="
+											},
+											"model": {
+												"$ref": "AAAAAAGARbUsOHVAS3M="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 287,
+											"width": 191,
+											"height": 13,
+											"text": "+设置考场号()",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGARcTb7HVw7XQ=",
+											"_parent": {
+												"$ref": "AAAAAAGARbSQ9HUXzpU="
+											},
+											"model": {
+												"$ref": "AAAAAAGARcTb33Vtu08="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 302,
+											"width": 191,
+											"height": 13,
+											"text": "+设置考试时间()",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGARcVBv3V40Dc=",
+											"_parent": {
+												"$ref": "AAAAAAGARbSQ9HUXzpU="
+											},
+											"model": {
+												"$ref": "AAAAAAGARcVBt3V1/Jk="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 317,
+											"width": 191,
+											"height": 13,
+											"text": "+设置考试科目()",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGARcVE93V+H8c=",
+											"_parent": {
+												"$ref": "AAAAAAGARbSQ9HUXzpU="
+											},
+											"model": {
+												"$ref": "AAAAAAGARcVE73V7m8w="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 332,
+											"width": 191,
+											"height": 13,
+											"text": "+设置年级专业()",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGARcVIHXWEAg4=",
+											"_parent": {
+												"$ref": "AAAAAAGARbSQ9HUXzpU="
+											},
+											"model": {
+												"$ref": "AAAAAAGARcVIF3WBZzc="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 347,
+											"width": 191,
+											"height": 13,
+											"text": "+设置监考员()",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGARcVKeHWKCCQ=",
+											"_parent": {
+												"$ref": "AAAAAAGARbSQ9HUXzpU="
+											},
+											"model": {
+												"$ref": "AAAAAAGARcVKb3WH2Ns="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 362,
+											"width": 191,
+											"height": 13,
+											"text": "+设置开考方式()",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGARcYal3WbDpk=",
+											"_parent": {
+												"$ref": "AAAAAAGARbSQ9HUXzpU="
+											},
+											"model": {
+												"$ref": "AAAAAAGARcYaj3WYctc="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 377,
+											"width": 191,
+											"height": 13,
+											"text": "+设置参加考试学生名单()",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"left": 144,
+									"top": 282,
+									"width": 201,
+									"height": 113
+								},
+								{
+									"_type": "UMLReceptionCompartmentView",
+									"_id": "AAAAAAGARbSQ9HUYas4=",
+									"_parent": {
+										"$ref": "AAAAAAGARbSQ83UQapA="
+									},
+									"model": {
+										"$ref": "AAAAAAGARbSQ8XUOPKU="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": -8,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLTemplateParameterCompartmentView",
+									"_id": "AAAAAAGARbSQ9HUZ1B4=",
+									"_parent": {
+										"$ref": "AAAAAAGARbSQ83UQapA="
+									},
+									"model": {
+										"$ref": "AAAAAAGARbSQ8XUOPKU="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": -8,
+									"width": 10,
+									"height": 10
+								}
+							],
+							"font": "Arial;13;0",
+							"containerChangeable": true,
+							"left": 144,
+							"top": 144,
+							"width": 201,
+							"height": 251,
+							"nameCompartment": {
+								"$ref": "AAAAAAGARbSQ83UR1Xo="
+							},
+							"attributeCompartment": {
+								"$ref": "AAAAAAGARbSQ9HUW8OI="
+							},
+							"operationCompartment": {
+								"$ref": "AAAAAAGARbSQ9HUXzpU="
+							},
+							"receptionCompartment": {
+								"$ref": "AAAAAAGARbSQ9HUYas4="
+							},
+							"templateParameterCompartment": {
+								"$ref": "AAAAAAGARbSQ9HUZ1B4="
+							}
+						}
+					]
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "AAAAAAGARbSQ8XUOPKU=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "考试",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGARbUiWXU6Kpw=",
+							"_parent": {
+								"$ref": "AAAAAAGARbSQ8XUOPKU="
+							},
+							"name": "考场号"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGARbU+kHVGD9k=",
+							"_parent": {
+								"$ref": "AAAAAAGARbSQ8XUOPKU="
+							},
+							"name": "考试时间"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGARbVBGHVMGwY=",
+							"_parent": {
+								"$ref": "AAAAAAGARbSQ8XUOPKU="
+							},
+							"name": "考试科目"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGARbgGeHVVv1k=",
+							"_parent": {
+								"$ref": "AAAAAAGARbSQ8XUOPKU="
+							},
+							"name": "年级专业班级"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGARbicoHVc9Z8=",
+							"_parent": {
+								"$ref": "AAAAAAGARbSQ8XUOPKU="
+							},
+							"name": "监考员"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGARboHKHVjEUg=",
+							"_parent": {
+								"$ref": "AAAAAAGARbSQ8XUOPKU="
+							},
+							"name": "开考方式"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGARcXdR3WR2P4=",
+							"_parent": {
+								"$ref": "AAAAAAGARbSQ8XUOPKU="
+							},
+							"name": "参加考试学生名单"
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGARbUsOHVAS3M=",
+							"_parent": {
+								"$ref": "AAAAAAGARbSQ8XUOPKU="
+							},
+							"name": "设置考场号"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGARcTb33Vtu08=",
+							"_parent": {
+								"$ref": "AAAAAAGARbSQ8XUOPKU="
+							},
+							"name": "设置考试时间"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGARcVBt3V1/Jk=",
+							"_parent": {
+								"$ref": "AAAAAAGARbSQ8XUOPKU="
+							},
+							"name": "设置考试科目"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGARcVE73V7m8w=",
+							"_parent": {
+								"$ref": "AAAAAAGARbSQ8XUOPKU="
+							},
+							"name": "设置年级专业"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGARcVIF3WBZzc=",
+							"_parent": {
+								"$ref": "AAAAAAGARbSQ8XUOPKU="
+							},
+							"name": "设置监考员"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGARcVKb3WH2Ns=",
+							"_parent": {
+								"$ref": "AAAAAAGARbSQ8XUOPKU="
+							},
+							"name": "设置开考方式"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGARcYaj3WYctc=",
+							"_parent": {
+								"$ref": "AAAAAAGARbSQ8XUOPKU="
+							},
+							"name": "设置参加考试学生名单"
+						}
+					]
+				}
+			]
+		}
+	]
+}

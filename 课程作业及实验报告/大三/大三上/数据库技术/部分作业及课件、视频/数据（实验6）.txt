@@ -1,0 +1,32 @@
+db.students.drop();
+
+db.students.insert({"name":"张三","sex":"男","age":19,"score":89,"address":"海淀区"})
+db.students.insert({"name":"李四","sex":"女","age":20,"score":59,"address":"朝阳区"})
+db.students.insert({"name":"王五","sex":"女","age":19,"score":99,"address":"西城区"})
+db.students.insert({"name":"赵六","sex":"男","age":20,"score":100,"address":"东城区"})
+db.students.insert({"name":"孙七","sex":"男","age":19,"score":20,"address":"海淀区"})
+db.students.insert({"name":"王八","sex":"女","age":21,"score":0,"address":"三里屯"})
+db.students.insert({"name":"刘九","sex":"男","age":19,"score":70,"address":"朝阳区"})
+db.students.insert({"name":"钱十","sex":"女","age":21,"score":56,"address":"西城区"})
+
+
+
+db.phones.drop();
+
+db.phones.insert({"tel":"110","code":110,"time":new Date()})
+db.phones.insert({"tel":"111","code":111,"time":new Date()})
+db.phones.insert({"tel":"112","code":112,"time":new Date()})
+db.phones.insert({"tel":"113","code":113,"time":new Date()})
+db.phones.insert({"tel":"114","code":114,"time":new Date()})
+
+
+db.shop.drop();
+db.shop.insert({"loc":[10,10]})
+db.shop.insert({"loc":[11,10]})
+db.shop.insert({"loc":[10,11]})
+db.shop.insert({"loc":[12,15]})
+db.shop.insert({"loc":[16,17]})
+db.shop.insert({"loc":[90,90]})
+db.shop.insert({"loc":[120,130]})
+
+

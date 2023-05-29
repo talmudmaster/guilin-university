@@ -1,0 +1,1 @@
+ezsurf('sin(t)*(3+cos(u))','cos(t)*(3+cos(u))','sin(u)','0,2*pi,0,2*pi')

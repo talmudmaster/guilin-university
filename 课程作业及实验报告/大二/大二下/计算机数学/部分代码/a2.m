@@ -1,0 +1,1 @@
+s= simplify(dsolve('D2x==-2/t*Dx+2/t^2*x+10*cos(log10(t))/t^2','x(1)==1','x(3)==3','t'))

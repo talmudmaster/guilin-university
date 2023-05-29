@@ -1,0 +1,67 @@
+//1.
+db.student.drop()
+db.student.insert({"name":"zhangsan","score":[{"English":69},{"Math":86},{"Computer":77}]})
+db.student.insert({"name":"lisi","score":[{"English":55},{"Math":100},{"Computer":88}]})
+
+//2
+db.student.find()
+//3
+db.student.find({"name":"zhangsan"},{"score":1})
+//4
+db.student.update({"name":"lisi",{"score":{"$set":"Math":95}}}
+//5
+a={
+    "name":"scofield",
+    "score":{"English":55,"Math":100,"Computer:"88}
+    }
+collection.insert(a)
+//6
+cursor = db["student"].find({"name":"scofield"},{"name":0})
+//7
+
+db.getCollection('users').find()
+//7
+db.users.find({"age":17})
+//8
+db.users.find({"age":{"$gte":17,"$lte":20}})
+//9
+db.users.find({"$or":[{"age":17},{"age":20}]})
+//10
+db.users.find({"name":/0/})
+//11
+db.users.find({"age":{"$lt":21}},{"name":1,"age":1})
+//12
+db.users.find().sort({"age":-1})
+//13
+db.users.find().limit(3)
+//14
+db.users.find().skip(3).limit(3)
+//15
+15 db.users.aggregate([{"group":"_id":"$name"}}])
+
+db.users.find({"like":{"$and":[{"movies":"长津湖"},{"movies":"战狼"}]}})
+db.users.find({"$and":[{"like":{"movies":"长津湖"}},{"like":{"movies":"战狼"}}]})
+//16
+db.users.find({"name":"WuKong"},{"com":1}).limit(3)
+17 db.users.find({"name":"WuKong"},{"com":{"$slice":3}})
+//17
+db.users.find({"com":{"$exists":true}})
+//18
+db.users.updateOne({"name":"zhangsan5"},{"$addToSet":{"like":"sing"}})
+//19
+db.users.find({"com":{"uid":"001"},{"content" : "很好"}})
+//20
+20 db.users.find({"com.uid":"001"},{"com.content":{"很好"}})
+
+//21
+db.users.update({"name":""},{"$inc":{"age":1}})
+
+//22?
+db.users.updateOne({"name":"zhangsan5"},{"$pop":{"like":-1}})
+//23
+db.users.aggregate([{"$group":{"_id":"$sex","sum":{"$sum":1}}}])
+//24.
+db.users.aggregate([{"$group":{"_id":"$age","人数":{"$sum":1},"学生":{"$push":"$name"}}},{{"$match":{"人数":{"$gt":3}}}])
+//25.
+db.users.aggregate([{"$group":{"_id":"$name","总分":{"$sum":{"$sum":["score.chinese","score.math","score.english"]"}}}])
+//26

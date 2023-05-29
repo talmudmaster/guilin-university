@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>数据统计模型页面</title>
+		<!-- CSS -->
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.main {
+				width: 90%;
+				/* 设置水平居中 */
+				margin: 0 auto;
+				padding-bottom: 100px;
+			}
+
+			.tit {
+				text-align: center;
+				font-size: 40px;
+				font-weight: 700;
+				padding-top: 10px;
+				color: #008000;
+				letter-spacing: 3px;
+			}
+
+			.updata-time {
+				text-align: right;
+				color: #999999;
+				font-size: 14px;
+				padding: 5px 0;
+			}
+
+			.in-title {
+				background-color: #03BEC8;
+				font-size: 16px;
+				font-weight: 600px;
+				color: #000000;
+				padding: 10px;
+			}
+
+			ul {
+				list-style: none;
+			}
+
+			ul>li {
+				margin-top: 5px;
+				padding: 10px 0;
+				float: left;
+				width: 25%;
+				/* white-space:nowrap; */
+				background-color: #FCEBD7;
+				text-align: center;
+			}
+
+			.clearfix:after,
+			.clearfix:before {
+				content: "";
+				display: block;
+				clear: both;
+			}
+
+			/* .content-top{
+				font-size: 18px;
+			}
+			.content-center1{
+				color: #E61C1E;
+				font-size: 32px;
+			}
+			.content-center2{
+				color: #A943B4;
+				font-size: 32px;
+			}
+			.content-center3{
+				color: #588AD4;
+				font-size: 32px;
+			}
+			.content-center4{
+				color: #000000;
+				font-size: 32px;
+			}
+			.content-center5{
+				color: #BA221F;
+				font-size: 32px;
+			}
+			.content-center6{
+				color: #33AB70;
+				font-size: 32px;
+			}
+			.content-center7{
+				color: #F62E30;
+				font-size: 32px;
+			}
+			.content-center8{
+				color: #34A970;
+				font-size: 32px;
+			}
+			.content-bottom{
+				display: flex;
+				justify-content: center;
+			}
+			.content-bottom div:nth-child(1){
+				color: #999999;
+				font-size: 16px;
+			}
+			.content-bottom div:nth-child(2){
+				color: red;
+				font-size: 16px;
+			} */
+			/* .xingaun{
+				font-size: 32px;
+				color: #FC0505;
+				text-align: center;
+				margin-top: 10px;
+			}
+			.data{
+				font-size: 16px;
+				color: #7CB9B3;
+				text-align: center;
+				margin-top: 5px;
+			} */
+
+			/* 
+				响应式
+				ID选择器
+				class选择器的区别
+			 */
+			.in-data {
+				padding: 10px 0;
+			}
+
+			.in-data li {
+				float: left;
+				width: 25%;
+				text-align: center;
+				background-color: blanchedalmond;
+				list-style: none;
+				padding: 20px 0;
+				margin-bottom: 10px;
+			}
+
+			.in-data-t {
+				font-size: 20px;
+				color: #333333;
+			}
+
+			.in-data-num {
+				color: #000;
+				font-size: 40px;
+				font-weight: 700;
+			}
+			/* 设置表格样式 */
+			.intTable{
+				width: 100%;
+				padding-bottom: 6px;
+				text-align: center;
+				font-size: 20px;
+				color: #0000ff;
+			}
+			
+			.intTable thead{
+				background-color: #009688;
+				padding: 16px 0;
+			}
+			
+			.intTable td{
+				font-size: 16px;
+				background-color: #f5f6f7;
+				
+			}
+			
+			.intTable tr td:first-child{
+				background-color: #009688;
+				padding: 16px 0;
+			}
+			
+			
+		</style>
+		<!-- JS -->
+		<!-- 引入jQuery框架路径 -->
+		<script src="https://cdn.bootcss.com/echarts/4.7.0/echarts.min.js"></script>
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+		<script src="http://cdn.zaixianke.com/china.js"></script>
+	</head>
+	<body>
+		<div class="main">
+			<div class="tit">疫情实时大数据报告</div>
+			<!-- 动态显示当前时间 -->
+			<div class="data-time" id="date-time" style="color: #FC0505; font-size: 30px; font-weight: 800;">
+				当前时间：2022-04-26
+			</div>
+			<!-- 数据更新的时间 -->
+			<div class="updata-time">更新时间：2022-04-26</div>
+			<div class="in-title">全国疫情数据</div>
+
+			<div class="in-data">
+				<ul class="clearfix">
+					<li>
+						<p class="in-data-t">本地现有确诊</p>
+						<p id="localConfirm" class="in-data-num" style="color: orange;">427826</p>
+						<p class="in-data-add">较昨日
+							<span style="color: red;" id="localConfirmAdd">+1024</span>
+						</p>
+					</li>
+					<li>
+						<p class="in-data-t">无症状感染者</p>
+						<p id="noInfect" class="in-data-num" style="color: red;">427826</p>
+						<p class="in-data-add">较昨日
+							<span style="color: orange;" id="noInfectAdd">+1024</span>
+						</p>
+					</li>
+					<li>
+						<p class="in-data-t">境外输入</p>
+						<p id="importedCase" class="in-data-num" style="color: blue;">427826</p>
+						<p class="in-data-add">较昨日
+							<span style="color: blue;" id="importedCaseAdd">+1024</span>
+						</p>
+					</li>
+					<li>
+						<p class="in-data-t">累计死亡</p>
+						<p id="dead" class="in-data-num" style="color: green;">427826</p>
+						<p class="in-data-add">较昨日
+							<span style="color: green;" id="deadAdd">+1024</span>
+						</p>
+					</li>
+					<li>
+						<p class="in-data-t">累计确诊</p>
+						<p id="confirm" class="in-data-num" style="color: purple;">427826</p>
+						<p class="in-data-add">较昨日
+							<span style="color: firebrick;" id="confirmAdd">+1024</span>
+						</p>
+					</li>
+					<li>
+						<p class="in-data-t">累计治愈</p>
+						<p class="in-data-num" id="heal" style="color: yellowgreen;">427826</p>
+						<p class="in-data-add">较昨日
+							<span style="color: purple;" id="healAdd">+1024</span>
+						</p>
+					</li>
+					<li>
+						<p class="in-data-t">现有确诊</p>
+						<p class="in-data-num" id="nowConfirm" style="color: blueviolet;">427826</p>
+						<p class="in-data-add">较昨日
+							<span style="color: orange;" id="nowConfirmAdd">+1024</span>
+						</p>
+					</li>
+					<li>
+						<p class="in-data-t">现有重症</p>
+						<p class="in-data-num" id="nowSevere" style="color: firebrick;">427826</p>
+						<p class="in-data-add">较昨日
+							<span style="color: deeppink;" id="nowSevereAdd">+1024</span>
+						</p>
+					</li>
+				</ul>
+			</div>
+
+			<!-- 中国地图 -->
+			<div id="chinaMap" style="height: 680px; position: relative;"></div>
+			<!-- 近30天全国疫情动态图 -->
+			<!-- <div id="zhexianChart" style="height: 680px; position: relative;"></div> -->
+			<div id="chinaConfirm" style="height: 680px; position: relative;margin-top: 20px;"></div>
+			<!-- top10 -->
+			<div id="chinaCityTop" style="height: 680px; position: relative;margin-top: 20px;"></div>
+			<!-- 数据表格 -->
+			<div>
+				<span style="color: #ff0000; font-weight: 600; font-size: 18px;">国内各地疫情统计汇总</span>
+				<span style="color: #999999; font-size: 12px;">7:00-10:00为更新高峰,数据若滞后敬请谅解</span>
+				<table class="intTable">
+					<thead>
+						<th>地区</th>
+						<th>新增确诊</th>
+						<th>现有确诊</th>
+						<th>累计确诊</th>
+						<th>治愈人数</th>
+						<th>死亡人数</th>
+					</thead>
+					<tbody id="tableId">
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function getDate() {
+			// 获取当前时间
+			var date = new Date();
+			// 格式化时间
+			var dateTime = date.toLocaleString()
+			$(".data-time").html("当前时间:" + dateTime) //jQuery
+			// document.getElementById("date-time").innerHTML = "当前时间:" + dateTime //传统DOM
+		}
+		// 定时器
+		setInterval("getDate()", 1000)
+
+		var newCityConfirm = []
+		var tableNcovNum = []
+		
+		// console.log('控制台输出了.......')
+		// alert('Ajax异步请求')
+		// Ajax异步请求
+		$.ajax({
+			url: "https://api.inews.qq.com/newsqa/v1/query/inner/publish/modules/list?modules=diseaseh5Shelf",
+			type: "post", //指定请求类型
+			dataType: "json", //响应数据
+		})
+		// 回调函数
+		.then((res) => {
+			var dataResult = res.data
+			// console.log(dataResult)
+			// 获取更新时间
+			var updatetime = dataResult.diseaseh5Shelf.lastUpdateTime
+			console.log(dataResult.diseaseh5Shelf.lastUpdateTime)
+			$(".updata-time").html("更新时间：" + updatetime)
+			// 获取相关统计项的数据
+			// 本地现有确诊
+			var localConfirm = dataResult.diseaseh5Shelf.chinaTotal.localConfirm
+			// console.log(localConfirm)
+			$("#localConfirm").html(localConfirm)
+
+			// 新增无症状
+			var noInfect = dataResult.diseaseh5Shelf.chinaTotal.noInfect
+			// console.log(noInfect)
+			$("#noInfect").html(noInfect)
+
+			// 境外输入
+			var importedCase = dataResult.diseaseh5Shelf.chinaTotal.importedCase
+			// console.log(importedCase)
+			$("#importedCase").html(importedCase)
+
+			// 累计死亡
+			var dead = dataResult.diseaseh5Shelf.chinaTotal.dead
+			// console.log(dead)
+			$("#dead").html(dead)
+
+			// 累计确诊
+			var confirm = dataResult.diseaseh5Shelf.chinaTotal.confirm
+			// console.log(confirm)
+			$("#confirm").html(confirm)
+
+			// 累计治愈
+			var heal = dataResult.diseaseh5Shelf.chinaTotal.heal
+			// console.log(heal)
+			$("#heal").html(heal)
+
+			// 现有确诊
+			var nowConfirm = dataResult.diseaseh5Shelf.chinaTotal.nowConfirm
+			// console.log(nowConfirm)
+			$("#nowConfirm").html(nowConfirm)
+
+			// 现有重症
+			var nowSevere = dataResult.diseaseh5Shelf.chinaTotal.nowSevere
+			// console.log(nowSevere)
+			$("#nowSevere").html(nowSevere)
+
+			// 较昨日
+			// 本地现有确诊
+			var localConfirmAdd = dataResult.diseaseh5Shelf.chinaAdd.localConfirmH5
+			// console.log(localConfirmAdd)
+			localConfirmAdd > 0 ? $("#localConfirmAdd").html("+" + localConfirmAdd) : $("#localConfirmAdd").html(
+				localConfirmAdd)
+
+			// 新增无症状
+			var noInfectAdd = dataResult.diseaseh5Shelf.chinaAdd.noInfect
+			// console.log(noInfectAdd)
+			noInfectAdd > 0 ? $("#noInfectAdd").html("+" + noInfectAdd) : $("#noInfectAdd").html(noInfectAdd)
+
+			// 境外输入
+			var importedCaseAdd = dataResult.diseaseh5Shelf.chinaAdd.importedCase
+			// console.log(importedCaseAdd)
+			importedCaseAdd > 0 ? $("#importedCaseAdd").html("+" + importedCaseAdd) : $("#importedCaseAdd").html(
+				importedCaseAdd)
+
+			// 累计死亡
+			var deadAdd = dataResult.diseaseh5Shelf.chinaAdd.dead
+			// console.log(deadAdd)
+			deadAdd > 0 ? $("#deadAdd").html("+" + deadAdd) : $("#deadAdd").html(deadAdd)
+
+			// 累计确诊
+			var confirmAdd = dataResult.diseaseh5Shelf.chinaAdd.confirm
+			// console.log(confirmAdd)
+			confirmAdd > 0 ? $("#confirmAdd").html("+" + confirmAdd) : $("#confirmAdd").html(confirmAdd)
+
+			// 累计治愈
+			var healAdd = dataResult.diseaseh5Shelf.chinaAdd.heal
+			// console.log(healAdd)
+			healAdd > 0 ? $("#healAdd").html("+" + healAdd) : $("#healAdd").html(healAdd)
+
+			// 现有确诊
+			var nowConfirmAdd = dataResult.diseaseh5Shelf.chinaAdd.nowConfirm
+			// console.log(nowConfirmAdd)
+			nowConfirmAdd > 0 ? $("#nowConfirmAdd").html("+" + nowConfirmAdd) : $("#nowConfirmAdd").html(
+				nowConfirmAdd)
+
+			// 现有重症
+			var nowSevereAdd = dataResult.diseaseh5Shelf.chinaAdd.nowSevere
+			// console.log(nowSevereAdd)
+			nowSevereAdd > 0 ? $("#nowSevereAdd").html("+" + nowSevereAdd) : $("#nowSevereAdd").html(nowSevereAdd)
+
+			/*
+			 * 需求：
+			 * 1、获取省份
+			 * 2.获取每个省份确诊的人数
+			 */
+			// 数据解析
+			var proData = dataResult.diseaseh5Shelf.areaTree[0].children
+			for(var i = 0; i < proData.length; i++) {
+				var jsonCityConfirm = {
+					name: proData[i].name, //省份
+					value: proData[i].total.nowConfirm //获取省份对应的确诊人数
+				}
+				newCityConfirm.push(jsonCityConfirm)
+				var tablenNCov={
+					name: proData[i].name, //省份
+					confirm: proData[i].today.confirm, //新增
+					nowconfirm: proData[i].total.nowConfirm, // 现有确诊
+					totalconfirm: proData[i].total.confirm, // 累计确诊
+					heal: proData[i].total.heal, // 治愈人数
+					dead: proData[i].total.dead, // 死亡人数
+				}
+				tableNcovNum.push(tablenNCov)
+			}
+			console.log(tableNcovNum)
+			
+			for(var x = 0; x < tableNcovNum.length;x ++){
+				var tableAndTr = "<tr>"+
+								"<td>"+tableNcovNum[x].name+"</td>"+
+								"<td>"+tableNcovNum[x].confirm+"</td>"+
+								"<td>"+tableNcovNum[x].nowconfirm+"</td>"+
+								"<td>"+tableNcovNum[x].totalconfirm+"</td>"+
+								"<td>"+tableNcovNum[x].heal+"</td>"+
+								"<td>"+tableNcovNum[x].dead+"</td>"+
+								"</tr>";
+				// 获取table对象,给table添加行
+				$("#tableId").append(tableAndTr);
+			}
+			
+			// 柱状图应用
+			/**
+			 * 1.获取本土疫情最严重的10个省份的数据
+			 * 2.从大到小的顺序排序
+			 */
+			// var num=[1,5,68,2,8,6,3]
+			// num.sort(function(x,y){return y-x})  //升序：x-y  倒叙:y-x
+			// console.log(num)
+			var cityTop=[]
+			var arrCity = []
+			var arrCityNum = []
+			console.log(newCityConfirm)
+			for (var i = 2; i < newCityConfirm.length; i++) {
+				cityTop.push(newCityConfirm[i])
+				arrCity.push(newCityConfirm[i].name)
+				arrCityNum.push(newCityConfirm[i].value)
+				if(cityTop.length == 10){
+					break
+				}
+			}
+			// console.log(cityTop)
+			
+			var chinaCityTop = echarts.init(document.getElementById("chinaCityTop"))
+			chinaCityTop.setOption({
+				title: {
+				  text: '省累计确诊Top10',
+				  left:'left',
+				  textStyle:{
+					  fontSize:20,
+					  color:'red'
+				  }
+				},
+				grid:{
+					left:'1%',
+					right:'1%',
+					bottom:'3%',
+					containLabel:true
+				},
+				tooltip:{ //信息提示框
+					trigger:'axis', //表示提示框触发类型，axis一般用于折线图
+					padding:10,
+					borderRadius:5,
+					textStyle:{ //设置提示框中文本的样式
+						fontSize:14,
+						// color:'red'
+					}
+				},
+				legend: {
+					data: ['Top10确诊数据']
+				},
+				xAxis: {
+					type:'category',
+					data: arrCity,
+					axisLine:{ //是否显示坐标轴线
+						show:false
+					},
+					axisTick:{ //是否显示坐标轴上的刻度
+						show:false
+					}
+				},
+				yAxis: {
+					name:'确诊人数',
+					type:'value',
+					axisTick:{ //是否显示坐标轴上的刻度
+						show:false
+					}
+				},
+				series: [ //指定柱状图数据集
+				  {
+					type: 'bar',
+					data: arrCityNum,
+					barWidth:20,//设置柱宽
+					itemStyle:{//设置柱子渐变色
+						normal:{
+							// barBorderRadius:5,0,5,,
+							color: new echarts.graphic.LinearGradient(
+								0 ,0 ,1 ,0 ,
+								[
+									{
+										offset:0,
+										color:'#ff0000'
+									},
+									{
+										offset:1,
+										color:'#ff7744'
+									}
+								]
+							)
+						}
+					}
+					
+				  }
+				]
+			})
+			
+			
+			var mapChart = echarts.init(document.getElementById("chinaMap"))
+			// 设置echarts地图属性和参数
+			mapChart.setOption({
+				title: {
+						text: "Ncov-国内累计数据报表",
+						textStyle: { //设置 标题样式
+							color: '#ff0000',
+							fontSize: 28
+						},
+						subtext: '数据来源：国家和省市卫健委',
+						subtextStyle: {
+							color: '#009688',
+							fontSize: 12,
+						},
+						left: 'center',
+						top: 15
+					},
+					// 构建数据提示框
+					tooltip: {
+						trigger: 'item', //item显示鼠标放到数据区域就会触发
+						formatter: function(params, ticket, callback) {
+							if (params.data) {
+								return params.name + '<br/>现有确诊：人数' + '(' + params.data.value + '人)'
+							} else {
+								return params.name + '<br/>无疫情信息'
+							}
+						}
+					},
+					//地图视觉映射
+					visualMap: {
+						type: 'piecewise',
+						pieces: [
+							{
+								gte: 10000,
+								color: 'red',
+								label: '10000人及以上',
+								colorAlpha: 1
+							},
+							{
+								gte: 1000,
+								lte: 9999,
+								color: 'orange',
+								label: '1000-9999人',
+								colorAlpha: 0.8
+							},
+							{
+								gte: 500,
+								lte: 999,
+								color: 'purple',
+								label: '500-999人',
+								colorAlpha: 0.6
+							},
+							{
+								gte: 100,
+								lte: 499,
+								color: 'blue',
+								label: '100-499人',
+								colorAlpha: 0.4
+							},
+							{
+								gte: 10,
+								lte: 99,
+								color: 'green',
+								label: '10-99人',
+								colorAlpha: 0.2
+							},
+							{
+								gte: 1,
+								lte: 9,
+								color: 'yellow',
+								label: '1-9人',
+								colorAlpha: 0.1
+							},
+							{
+								lt: 1,
+								color: '#999999',
+								label: '0人',
+								colorAlpha: 0.1
+							},
+						]
+					},
+					// 绑定数据，设置相关的属性
+					series:[{
+						name:'国内各省确诊病例',
+						zoom:1.2,  //地图大小
+						type:'map', //图表 类型
+						map:'china', //要使用的地图，注册地图名称
+						roam:false, //鼠标缩放和平移
+						label:{
+							show:true,
+							formatter:'{b}', //b:表示数据名，c:数据值
+							fontSize:12
+						},
+						data:newCityConfirm
+					}]
+			})
+		});
+		$.ajax({
+			url:'https://api.inews.qq.com/newsqa/v1/query/inner/publish/modules/list?modules=chinaDayList,chinaDayAddList,provinceCompare',
+			type:'get',
+			dataType:'json',
+		}).then((res)=>{
+			var dataDay = [] //x坐标值（日期）
+			var confirmDayDatas = []  //确诊人数
+			var infectDatas = []  //
+			var chinaDayAddListResult = res.data
+			var chinaDayAddArrays = res.data.chinaDayAddList
+			
+			for (var x = chinaDayAddArrays.length-1; x >= chinaDayAddArrays.length/2; x--) {
+				dataDay.push(chinaDayAddArrays[x].y+"-"+chinaDayAddArrays[x].date.replace(".","-"))
+				confirmDayDatas.push(chinaDayAddArrays[x].confirm)
+				infectDatas.push(chinaDayAddArrays[x].infect)
+			}
+			// console.log(dataDay)
+			// console.log(confirmDayDatas)
+			// console.log(infectDatas)
+			
+			var chinaConfirm = echarts.init(document.getElementById("chinaConfirm"))
+			chinaConfirm.setOption({
+				title:{
+					text:'近30天新增疫情数据',
+				},
+				legend:{
+					data:['国内较上日累计新增确诊','国内较上日无症状感染者']
+				},
+				xAxis: {
+				  type: 'category', //坐标轴类型
+				  boundaryGap:false, //设置x轴坐标，0刻度开始
+				  data: dataDay,
+				  axisLabel:{
+					  rotate:30  //x轴坐标倾斜
+				  }
+				},
+				grid:{
+					left:'1%',
+					right:'1%',
+					bottom:'3%',
+					containLabel:true
+				},
+				tooltip:{ //信息提示框
+					trigger:'axis', //表示提示框触发类型，axis一般用于折线图
+					padding:10,
+					borderRadius:5,
+					textStyle:{ //设置提示框中文本的样式
+						fontSize:14,
+						// color:'red'
+					}
+				},
+				yAxis: {
+				  type: 'value'
+				},
+				series: [
+				  {
+				    data: confirmDayDatas,
+				    type: 'line',
+					smooth:true, //平滑曲线类型
+					color:['#ff7b79'],
+					name:'国内较上日累计新增确诊',
+					markPoint:{
+					   data:[
+						   {
+							   type:'max',
+							   name:'最大值'
+						   },
+						   {
+							   type:'min',
+							   name:'最小值'
+						   }
+					  ]
+					},
+				  },
+				  {
+				    data: infectDatas,
+				    type: 'line',
+					smooth:true, //平滑曲线类型
+					color:['blue'],
+					name:'国内较上日无症状感染者',
+					itemStyle:{
+						normal:{
+							label:{
+								show:true
+							}
+						}
+					}
+				  },
+				]
+			})
+		})
+		
+		
+		
+	</script>
+</html>

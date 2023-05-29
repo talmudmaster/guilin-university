@@ -1,0 +1,43 @@
+
+db.students.drop();
+
+db.students.insert({"name":"张三","sex":"男","age":19,"score":89,"address":"海淀区"})
+db.students.insert({"name":"李四","sex":"女","age":20,"score":59,"address":"朝阳区"})
+db.students.insert({"name":"王五","sex":"女","age":19,"score":99,"address":"西城区"})
+db.students.insert({"name":"赵六","sex":"男","age":20,"score":100,"address":"东城区"})
+db.students.insert({"name":"孙七","sex":"男","age":19,"score":20,"address":"海淀区"})
+db.students.insert({"name":"王八","sex":"女","age":21,"score":0,"address":"三里屯"})
+db.students.insert({"name":"刘九","sex":"男","age":19,"score":70,"address":"朝阳区"})
+db.students.insert({"name":"钱十","sex":"女","age":21,"score":56,"address":"西城区"})
+db.students.insert({"name":"a","sex":"男","age":21,"score":100,"address":"三里屯"})
+
+db.students.insert({"name":"谷大神-A","sex":"男","age":19,"score":21,"address":"海淀区",
+                    "course":["语文","数学","英语","音乐","政治"]})
+db.students.insert({"name":"谷大神-B","sex":"男","age":20,"score":89,"address":"海淀区",
+                    "course":["语文","数学"]})
+db.students.insert({"name":"谷大神-C","sex":"男","age":19,"score":0,"address":"海淀区",
+                    "course":["语文","数学","英语"]})
+db.students.insert({"name":"谷大神-D","sex":"男","age":21,"score":90,"address":"海淀区",
+                    "course":["英语","音乐","政治"]})
+db.students.insert({"name":"谷大神-E","sex":"男","age":22,"score":60,"address":"海淀区",
+                    "course":["语文","政治"]})
+
+
+db.students.insert({"name":"漓江-A","sex":"男","age":19,"score":5,"address":"海淀区",
+                    "course":["语文","数学","英语","音乐","政治"],
+                    "parents": [{"name":"漓江-A(父亲)","age":50,"job":"工人"},
+                                {"name":"漓江-A(母亲)","age":46,"job":"职员"}] 
+})
+db.students.insert({"name":"漓江-B","sex":"男","age":20,"score":70,"address":"海淀区",
+                    "course":["语文","数学"],
+                    "parents": [{"name":"漓江-B（父亲）","age":50,"job":"处长"},
+                                {"name":"漓江-B（母亲）","age":46,"job":"局长"}]
+})
+db.students.insert({"name":"漓江-C","sex":"男","age":21,"score":35,"address":"海淀区",
+                    "course":["语文","数学","英语"],
+                    "parents": [{"name":"漓江-C（父亲）","age":50,"job":"工人"},
+                                {"name":"漓江-C（母亲）","age":46,"job":"局长"}]
+})
+
+
+

@@ -1,0 +1,46 @@
+# Project: danlianbiao
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o printLink.o createLink_head.o searchLink.o insertLink.o deleteLink.o createLink_tail.o
+LINKOBJ  = main.o printLink.o createLink_head.o searchLink.o insertLink.o deleteLink.o createLink_tail.o
+LIBS     = -L"D:/Dev-Cpp/MinGW64/lib" -L"D:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/Dev-Cpp/MinGW64/include" -I"D:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/Dev-Cpp/MinGW64/include" -I"D:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = danlianbiao.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+printLink.o: printLink.c
+	$(CC) -c printLink.c -o printLink.o $(CFLAGS)
+
+createLink_head.o: createLink_head.c
+	$(CC) -c createLink_head.c -o createLink_head.o $(CFLAGS)
+
+searchLink.o: searchLink.c
+	$(CC) -c searchLink.c -o searchLink.o $(CFLAGS)
+
+insertLink.o: insertLink.c
+	$(CC) -c insertLink.c -o insertLink.o $(CFLAGS)
+
+deleteLink.o: deleteLink.c
+	$(CC) -c deleteLink.c -o deleteLink.o $(CFLAGS)
+
+createLink_tail.o: createLink_tail.c
+	$(CC) -c createLink_tail.c -o createLink_tail.o $(CFLAGS)

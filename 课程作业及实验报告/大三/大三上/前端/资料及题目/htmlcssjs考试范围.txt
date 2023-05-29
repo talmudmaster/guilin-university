@@ -1,0 +1,22 @@
+html 标签：
+	table
+	input  in-line 不会换行
+	div
+	p
+	span   in-line
+
+css：
+	border：
+	width:
+	height:
+	margin
+	padding:
+
+js:
+	if..else
+	while
+	function
+	array 遍历
+
+编程题：	（神秘）
+		

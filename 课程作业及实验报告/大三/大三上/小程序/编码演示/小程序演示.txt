@@ -1,0 +1,26 @@
+演示：
+app.js中的全局变量展示一下就行，不敲
+
+playview.js中
+showPalyList传（歌单id）songListid和（歌单中歌曲信息）trackIds到全局变量
+21-24
+        console.log(data.playlist.id)
+        APP.globalData.songListid = data.playlist.id
+        console.log(data.playlist.trackIds)
+        APP.globalData.trackIds = data.playlist.trackIds
+showSongId传（歌曲在歌单中的id）songListid和（歌曲id ）songid
+36
+        APP.globalData.songListsongid=index
+
+play.js中
+shangyiqu将全局变量中songListsongid-1（歌单中的上一首的歌曲的序号id），再使用songListsongid通过trackIds获取到歌的歌曲id，调用onshow方法刷新界面实现播放
+247-253
+    APP.globalData.songListsongid=APP.globalData.songListsongid-1
+    console.log(APP.globalData.songListsongid)
+    console.log(APP.globalData.trackIds)
+    APP.globalData.songid=APP.globalData.trackIds[APP.globalData.songListsongid].id
+    console.log(APP.globalData.trackIds[APP.globalData.songListsongid].id)
+
+    this.onShow()
+xiayiqu同上，只不过是+1
+略

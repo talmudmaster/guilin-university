@@ -1,0 +1,544 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Python综合练习（大数据）</title>
+  <style>:root {
+  --color-primary: hsl(212, 89%, 53%);
+  --color-secondary: hsl(208, 7%, 46%);
+  --color-pass: hsl(100, 60%, 47%);
+  --color-danger: hsl(3, 68%, 53%);
+  --color-warning: hsl(35, 90%, 50%);
+  --color-ac: hsl(3, 89%, 53%);
+  --color-wa: hsl(100, 89%, 53%);
+  --color-pta: hsl(212, 87%, 30%);
+  --color-pds: hsl(23, 100%, 57%);
+  --color-pat: hsl(199, 88%, 57%);
+  --color-oms: hsl(175, 74%, 37%);
+  --color-zoj: hsl(227, 59%, 40%);
+  --color-es: hsl(45, 100%, 50%);
+  --text-black: hsl(0, 0%, 0%);
+  --text-dark: hsl(0, 0%, 10%);
+  --text-normal: hsl(0, 0%, 25%);
+  --text-light: hsl(0, 0%, 45%);
+  --text-lightest: hsl(0, 0%, 60%);
+  --text-white: hsl(0, 0%, 100%);
+  --text-black-r: hsl(0, 0%, 100%);
+  --border-all: hsl(0, 0%, 91%);
+  --bg-base: hsl(0, 0%, 100%);
+  --bg-light: hsl(0, 0%, 97%);
+  --bg-normal: hsl(0, 0%, 94%);
+  --bg-site: hsl(203, 33%, 95%);
+  --bg-base-r: hsl(0, 0%, 25%);
+  --active-brightness-diff: 0.85;
+}
+.paper {
+  margin: 0;
+  font-family: -apple-system, "PingFang SC", "Lantinghei SC", "Helvetica Neue", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+}
+.paper *,
+.paper *::before,
+.paper *::after {
+  box-sizing: border-box;
+}
+.paper pre,
+.paper code,
+.paper kbd,
+.paper samp {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 12px;
+}
+.paper pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  overflow: auto;
+  -ms-overflow-style: scrollbar;
+}
+.paper label {
+  display: inline-block;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+.paper hr {
+  height: 0;
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 0;
+}
+.paper .result table {
+  width: 100%;
+}
+.paper .result th,
+.paper .result td {
+  border: 1px solid #ddd;
+  text-align: center;
+}
+.paper .result .box {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+/* stylelint-disable */
+.ques-view, .rendered-markdown {
+  line-height: 1.5;
+}
+.ques-view p, .rendered-markdown p {
+  margin: 0.5em 0;
+}
+.ques-view h1, .rendered-markdown h1, .ques-view h2, .rendered-markdown h2, .ques-view h3, .rendered-markdown h3, .ques-view h4, .rendered-markdown h4, .ques-view h5, .rendered-markdown h5, .ques-view h6, .rendered-markdown h6 {
+  margin: 0.8em 0;
+}
+.ques-view img, .rendered-markdown img {
+  max-width: 100%;
+}
+.ques-view .ques-list, .rendered-markdown .ques-list {
+  padding-left: 50px;
+}
+.ques-view .ques-list li, .rendered-markdown .ques-list li {
+  position: relative;
+  list-style-type: upper-alpha;
+}
+.ques-view .ques-list input, .rendered-markdown .ques-list input {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  margin-top: -7px;
+}
+.ques-view textarea, .rendered-markdown textarea {
+  border-radius: 2px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  min-height: 100px;
+}
+.ques-view code, .rendered-markdown code {
+  font-size: 12px;
+  background: var(--bg-light);
+  border-radius: 3px;
+  border: 1px solid var(--border-all);
+  padding: 0 3px;
+  color: #e74c3c;
+  margin: 0 2px;
+}
+.ques-view pre, .rendered-markdown pre {
+  padding: 6px 12px;
+  background: var(--bg-light);
+  border: 1px solid var(--border-all);
+  border-radius: 3px;
+  word-break: break-all;
+}
+.ques-view pre code, .rendered-markdown pre code {
+  background: none;
+  border: none;
+  color: var(--text-normal);
+  padding: 0;
+  margin: 0;
+}
+.ques-view hr, .rendered-markdown hr {
+  border: none;
+  border-top: 1px solid var(--border-all);
+}
+.ques-view blockquote, .rendered-markdown blockquote {
+  margin: 0.5em 0;
+  padding: 2px 14px;
+  font-size: 12px;
+  background: var(--bg-light);
+  border-left: 4px solid var(--border-all);
+}
+.ques-view table, .rendered-markdown table {
+  margin: 0 auto;
+}
+.ques-view table th, .rendered-markdown table th, .ques-view table td, .rendered-markdown table td {
+  border: 1px solid var(--border-all);
+  padding: 2px 4px;
+  font-size: 12px;
+}
+.ques-view .ques-score, .rendered-markdown .ques-score {
+  color: var(--text-light);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.rendered-markdown blockquote {
+  margin: 0.5em 0;
+  padding: 2px 14px;
+  font-size: 12px;
+  background: var(--bg-light);
+  border-left: 4px solid var(--border-all);
+}
+.rendered-markdown blockquote p {
+  margin-bottom: 0;
+}
+.rendered-markdown table td, .rendered-markdown table th {
+  border: 1px solid var(--border-all);
+  padding: 5px;
+}
+.rendered-markdown p:first-child {
+  margin: 0;
+}
+.katex-mathml {
+  display: none;
+}
+.code {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Monaco, Courier, "Courier New", monospace;
+}
+</style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.7.1/dist/katex.min.css" integrity="sha256-tkzDFSl16wERzhCWg0ge2tON2+D6Qe9iEaJqM4ZGd4E=" crossorigin="anonymous">
+</head>
+<body>
+
+<div><div class="paper" style="max-width:940px;margin:auto" data-reactroot=""><div style="padding:16px;text-align:center;font-size:24px;font-weight:bold">Python综合练习（大数据）</div><div style="width:calc(100% / 3);display:inline-flex;padding:4px"><span style="font-weight:bold;min-width:56px">开始时间</span><span style="margin-left:8px;overflow:hidden;text-overflow:ellipsis" title="2021/06/09 12:00:00">2021/06/09 12:00:00</span></div><div style="width:calc(100% / 3);display:inline-flex;padding:4px"><span style="font-weight:bold;min-width:56px">结束时间</span><span style="margin-left:8px;overflow:hidden;text-overflow:ellipsis" title="2021/06/27 23:59:00">2021/06/27 23:59:00</span></div><div style="width:calc(100% / 3);display:inline-flex;padding:4px"><span style="font-weight:bold;min-width:56px">答题时长</span><span style="margin-left:8px;overflow:hidden;text-overflow:ellipsis" title="26639分钟">26639分钟</span></div><div style="width:calc(100% / 3);display:inline-flex;padding:4px"><span style="font-weight:bold;min-width:56px">答卷类型</span><span style="margin-left:8px;overflow:hidden;text-overflow:ellipsis" title="标准答案">标准答案</span></div><div style="width:calc(100% / 3);display:inline-flex;padding:4px"><span style="font-weight:bold;min-width:56px">总分</span><span style="margin-left:8px;overflow:hidden;text-overflow:ellipsis" title="150">150</span></div><hr/><div style="display:flex;font-size:16px;margin-top:16px"><span style="flex-grow:1;font-weight:bold">判断题</span><span>得分：暂无</span><span style="margin-left:20px">总分：20</span></div><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">1-1</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>表达式{1, 2 , 3} * 3的值是{1, 2, 3, 1, 2, 3, 1, 2, 3}。  </p>
+</div></div><div style="color:gray;word-break:keep-all">(1分)</div></div><div style="display:flex;width:100px;justify-content:space-between"><div><input type="radio" id="TRUE" name="1402464468764246016" value="TRUE" disabled=""/><label style="margin-left:4px" for="TRUE">T</label></div><div><input type="radio" id="FALSE" name="1402464468764246016" value="FALSE" disabled="" checked=""/><label style="margin-left:4px" for="FALSE">F</label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">1-2</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>已知有x = {&quot;a&quot;:99, &quot;b&quot;:66}，则sorted(x)的值是{&quot;b&quot;:66, &quot;a&quot;:99,}。  </p>
+</div></div><div style="color:gray;word-break:keep-all">(1分)</div></div><div style="display:flex;width:100px;justify-content:space-between"><div><input type="radio" id="TRUE" name="1402464468768440320" value="TRUE" disabled=""/><label style="margin-left:4px" for="TRUE">T</label></div><div><input type="radio" id="FALSE" name="1402464468768440320" value="FALSE" disabled="" checked=""/><label style="margin-left:4px" for="FALSE">F</label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">1-3</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>Python中“4”+“6”的结果为“10”。</p>
+</div></div><div style="color:gray;word-break:keep-all">(5分)</div></div><div style="display:flex;width:100px;justify-content:space-between"><div><input type="radio" id="TRUE" name="1402464468768440321" value="TRUE" disabled=""/><label style="margin-left:4px" for="TRUE">T</label></div><div><input type="radio" id="FALSE" name="1402464468768440321" value="FALSE" disabled="" checked=""/><label style="margin-left:4px" for="FALSE">F</label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">1-4</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>下面程序的输出是5。</p>
+<pre><code>set2={num for num in range(1,15) if num%3==0}
+print(len(set2))</code></pre>
+</div></div><div style="color:gray;word-break:keep-all">(1分)</div></div><div style="display:flex;width:100px;justify-content:space-between"><div><input type="radio" id="TRUE" name="1402464468768440322" value="TRUE" disabled=""/><label style="margin-left:4px" for="TRUE">T</label></div><div><input type="radio" id="FALSE" name="1402464468768440322" value="FALSE" disabled="" checked=""/><label style="margin-left:4px" for="FALSE">F</label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">1-5</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>下面的程序当输入是<code> c d e a</code>时，输出是<code> a c d e</code>。  </p>
+<pre><code>a = input().split(&quot; &quot;)
+for i in a.sort():    
+    print(i,end=&quot; &quot;)</code></pre>
+</div></div><div style="color:gray;word-break:keep-all">(2分)</div></div><div style="display:flex;width:100px;justify-content:space-between"><div><input type="radio" id="TRUE" name="1402464650531852288" value="TRUE" disabled=""/><label style="margin-left:4px" for="TRUE">T</label></div><div><input type="radio" id="FALSE" name="1402464650531852288" value="FALSE" disabled="" checked=""/><label style="margin-left:4px" for="FALSE">F</label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">1-6</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>表达式：<code>&quot;34&quot; in &quot;1234&quot;==True</code> 返回值是True。  </p>
+</div></div><div style="color:gray;word-break:keep-all">(1分)</div></div><div style="display:flex;width:100px;justify-content:space-between"><div><input type="radio" id="TRUE" name="1402464650531852289" value="TRUE" disabled=""/><label style="margin-left:4px" for="TRUE">T</label></div><div><input type="radio" id="FALSE" name="1402464650531852289" value="FALSE" disabled="" checked=""/><label style="margin-left:4px" for="FALSE">F</label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">1-7</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>&quot;&quot;.join([4,5,6])的结果是&quot;456&quot;字符串。  </p>
+</div></div><div style="color:gray;word-break:keep-all">(1分)</div></div><div style="display:flex;width:100px;justify-content:space-between"><div><input type="radio" id="TRUE" name="1402464650536046592" value="TRUE" disabled=""/><label style="margin-left:4px" for="TRUE">T</label></div><div><input type="radio" id="FALSE" name="1402464650536046592" value="FALSE" disabled="" checked=""/><label style="margin-left:4px" for="FALSE">F</label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">1-8</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>若x=[1,2,3,4]，那么执行x[:]=5后，x的值是[5]。 </p>
+</div></div><div style="color:gray;word-break:keep-all">(1分)</div></div><div style="display:flex;width:100px;justify-content:space-between"><div><input type="radio" id="TRUE" name="1402464650536046593" value="TRUE" disabled=""/><label style="margin-left:4px" for="TRUE">T</label></div><div><input type="radio" id="FALSE" name="1402464650536046593" value="FALSE" disabled="" checked=""/><label style="margin-left:4px" for="FALSE">F</label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">1-9</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><pre><code> Python中的标识符不区分大小写。(  )  </code></pre>
+</div></div><div style="color:gray;word-break:keep-all">(1分)</div></div><div style="display:flex;width:100px;justify-content:space-between"><div><input type="radio" id="TRUE" name="1402464964757442560" value="TRUE" disabled=""/><label style="margin-left:4px" for="TRUE">T</label></div><div><input type="radio" id="FALSE" name="1402464964757442560" value="FALSE" disabled="" checked=""/><label style="margin-left:4px" for="FALSE">F</label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">1-10</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>range(1,11)起点为1，能取到的最⼤数是 11.  </p>
+</div></div><div style="color:gray;word-break:keep-all">(1分)</div></div><div style="display:flex;width:100px;justify-content:space-between"><div><input type="radio" id="TRUE" name="1402464964757442561" value="TRUE" disabled=""/><label style="margin-left:4px" for="TRUE">T</label></div><div><input type="radio" id="FALSE" name="1402464964757442561" value="FALSE" disabled="" checked=""/><label style="margin-left:4px" for="FALSE">F</label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">1-11</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>已知x={10,20,30,40}，那么x[1]的值是20。</p>
+</div></div><div style="color:gray;word-break:keep-all">(1分)</div></div><div style="display:flex;width:100px;justify-content:space-between"><div><input type="radio" id="TRUE" name="1402464964761636864" value="TRUE" disabled=""/><label style="margin-left:4px" for="TRUE">T</label></div><div><input type="radio" id="FALSE" name="1402464964761636864" value="FALSE" disabled="" checked=""/><label style="margin-left:4px" for="FALSE">F</label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">1-12</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>3-8.列表lst=[12, -5, -22, -10, -26, 35, 0, 49, 3, -21],lst[::-1]的结果是[-21, 3, 49, 0, 35, -26, -10, -22, -5, 12]。  </p>
+</div></div><div style="color:gray;word-break:keep-all">(1分)</div></div><div style="display:flex;width:100px;justify-content:space-between"><div><input type="radio" id="TRUE" name="1402465103777652736" value="TRUE" disabled="" checked=""/><label style="margin-left:4px" for="TRUE">T</label></div><div><input type="radio" id="FALSE" name="1402465103777652736" value="FALSE" disabled=""/><label style="margin-left:4px" for="FALSE">F</label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">1-13</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>4-3.使用for i in range(10)和for i in range(10,20),控制循环次数是一样的。  </p>
+</div></div><div style="color:gray;word-break:keep-all">(1分)</div></div><div style="display:flex;width:100px;justify-content:space-between"><div><input type="radio" id="TRUE" name="1402465103777652737" value="TRUE" disabled="" checked=""/><label style="margin-left:4px" for="TRUE">T</label></div><div><input type="radio" id="FALSE" name="1402465103777652737" value="FALSE" disabled=""/><label style="margin-left:4px" for="FALSE">F</label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">1-14</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>Python字典和集合属于无序序列。  </p>
+</div></div><div style="color:gray;word-break:keep-all">(1分)</div></div><div style="display:flex;width:100px;justify-content:space-between"><div><input type="radio" id="TRUE" name="1402465235378135040" value="TRUE" disabled="" checked=""/><label style="margin-left:4px" for="TRUE">T</label></div><div><input type="radio" id="FALSE" name="1402465235378135040" value="FALSE" disabled=""/><label style="margin-left:4px" for="FALSE">F</label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">1-15</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p> Python内置的集合set中元素顺序是按元素的哈希值进行存储的，并不是按先后顺序。  </p>
+</div></div><div style="color:gray;word-break:keep-all">(1分)</div></div><div style="display:flex;width:100px;justify-content:space-between"><div><input type="radio" id="TRUE" name="1402465235378135041" value="TRUE" disabled="" checked=""/><label style="margin-left:4px" for="TRUE">T</label></div><div><input type="radio" id="FALSE" name="1402465235378135041" value="FALSE" disabled=""/><label style="margin-left:4px" for="FALSE">F</label></div></div></div></div></div><hr/><div style="display:flex;font-size:16px;margin-top:16px"><span style="flex-grow:1;font-weight:bold">单选题</span><span>得分：暂无</span><span style="margin-left:20px">总分：49</span></div><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-1</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>当前程序路径在 D:\PythonTest    目录中，使用 open() 打开 D 盘根目录下文件， 以下选项中对路径的表示错误的是</p>
+</div></div><div style="color:gray;word-break:keep-all">(2分)</div></div><div><div><input type="radio" id="A" name="1402465573921382400" value="A" disabled=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>D:\\a.txt</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402465573921382400" value="B" disabled="" checked=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>D:\a.txt</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402465573921382400" value="C" disabled=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>../a.txt</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402465573921382400" value="D" disabled=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>..//a.txt</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-2</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>Python语言属于以下哪种语言？</p>
+</div></div><div style="color:gray;word-break:keep-all">(2分)</div></div><div><div><input type="radio" id="A" name="1402465573921382401" value="A" disabled=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>机器语言</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402465573921382401" value="B" disabled=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>汇编语言</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402465573921382401" value="C" disabled="" checked=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>高级语言</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402465573921382401" value="D" disabled=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>以上都不是</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-3</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>下述代码中：</p>
+<pre><code>def func(a, b, c=0, *args):
+    print(a, b, c, args)</code></pre>
+<p>属于默认值参数的是：</p>
+</div></div><div style="color:gray;word-break:keep-all">(5分)</div></div><div><div><input type="radio" id="A" name="1402465573925576704" value="A" disabled=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>a</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402465573925576704" value="B" disabled=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>b</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402465573925576704" value="C" disabled="" checked=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>c</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402465573925576704" value="D" disabled=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>*args</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-4</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>下面哪种方法读文件“input.txt”是正确的.</p>
+</div></div><div style="color:gray;word-break:keep-all">(2分)</div></div><div><div><input type="radio" id="A" name="1402465866175369216" value="A" disabled=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>in_file = open(&#39;input.txt&#39;,&#39;w&#39;)</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402465866175369216" value="B" disabled=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>in_file = open(&#39;input.txt&#39;,r)</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402465866175369216" value="C" disabled="" checked=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>in_file = open(&#39;input.txt&#39;,&#39;r&#39;)</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402465866175369216" value="D" disabled=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>都不正确.</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-5</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>下面定义字典的语句那个是正确的？</p>
+</div></div><div style="color:gray;word-break:keep-all">(2分)</div></div><div><div><input type="radio" id="A" name="1402465866179563520" value="A" disabled="" checked=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>momthdays=dict(Jan=31,Feb=28,Mar=31,Apr=30)</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402465866179563520" value="B" disabled=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>momthdays=dict(&quot;Jan&quot;=31,&quot;Feb&quot;=28,&quot;Mar&quot;=31,“Apr&quot;=30)</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402465866179563520" value="C" disabled=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>momthdays={Jan:31,Feb:28,Mar:31,Apr:30}</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402465866179563520" value="D" disabled=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>momthdays={Jan=31,Feb=28,Mar=31,Apr=30}</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-6</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>下列程序运行输出结果为_______。</p>
+<pre><code>import math
+def factors(x):
+    y=int(math.sqrt(x))
+    for i in range(2,y+1):
+       if (x %i ==0):
+            print(i,end=&#39; &#39;);
+            factors(x//i)
+            break
+       else:
+           print(x,end=&#39; &#39;)
+    return
+factors(18)</code></pre>
+</div></div><div style="color:gray;word-break:keep-all">(4分)</div></div><div><div><input type="radio" id="A" name="1402465866179563521" value="A" disabled=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>3 2 3</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402465866179563521" value="B" disabled="" checked=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>2 9 3</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402465866179563521" value="C" disabled=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>3 6 3</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402465866179563521" value="D" disabled=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>2 3 6</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-7</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>选择下面程序的运行结果</p>
+<pre><code>number = 25
+isPrime = True
+for i in range(2, number):
+  if number % i == 0:
+    isPrime = False
+    break
+print(&quot;i is&quot;, i, &quot;isPrime is&quot;, isPrime)</code></pre>
+</div></div><div style="color:gray;word-break:keep-all">(4分)</div></div><div><div><input type="radio" id="A" name="1402465866179563522" value="A" disabled=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>i is 5 isPrime is True</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402465866179563522" value="B" disabled="" checked=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>i is 5 isPrime is False</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402465866179563522" value="C" disabled=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>i is 6 isPrime is True</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402465866179563522" value="D" disabled=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>i is 6 isPrime is False</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-8</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>下列程序运行输出结果为_______。</p>
+<pre><code>m={1:&#39;A&#39;,&#39;2&#39;:&#39;B&#39;}
+print(m.get(2,-1))</code></pre>
+</div></div><div style="color:gray;word-break:keep-all">(2分)</div></div><div><div><input type="radio" id="A" name="1402466180631646208" value="A" disabled=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>&#39;B&#39;</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402466180631646208" value="B" disabled=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>&#39;A&#39;</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402466180631646208" value="C" disabled=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>None</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402466180631646208" value="D" disabled="" checked=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>-1</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-9</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>下列程序运行输出结果为__________。</p>
+<pre><code>words=[&#39;cat&#39;,&#39;window&#39;, &#39;defenestrate&#39;]
+for w in words:
+    if len(w)&gt;6:
+        words.append(w)
+print(words)</code></pre>
+</div></div><div style="color:gray;word-break:keep-all">(4分)</div></div><div><div><input type="radio" id="A" name="1402466180631646209" value="A" disabled="" checked=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>无限循环</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402466180631646209" value="B" disabled=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>[&#39;window&#39;, &#39;defenestrate&#39;]</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402466180631646209" value="C" disabled=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>[&#39;cat&#39;, &#39;window&#39;, &#39;defenestrate&#39;]</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402466180631646209" value="D" disabled=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>[&#39;cat&#39;, &#39;window&#39;, &#39;defenestrate&#39;, &#39;defenestrate&#39;]</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-10</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>表达式 math.sqrt(4)*math.sqrt(9)的值为____。</p>
+</div></div><div style="color:gray;word-break:keep-all">(2分)</div></div><div><div><input type="radio" id="A" name="1402466180631646210" value="A" disabled=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>36.0</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402466180631646210" value="B" disabled=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>6</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402466180631646210" value="C" disabled=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>13.0</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402466180631646210" value="D" disabled="" checked=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>6.0</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-11</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>已知：s=&quot;a_ba_bc&quot;,下面（ ）选项可以实现将s字符串中的“_ ”去掉，变为&quot;ababc&quot;</p>
+</div></div><div style="color:gray;word-break:keep-all">(2分)</div></div><div><div><input type="radio" id="A" name="1402466180631646211" value="A" disabled="" checked=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>s.replace(&quot;_&quot;,&quot;&quot;)</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402466180631646211" value="B" disabled=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>s.delete(&quot;_ &quot;)</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402466180631646211" value="C" disabled=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>s[0]+s[2:-1]</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402466180631646211" value="D" disabled=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>s.find(&quot;_ &quot;)</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-12</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>创建一个集合{0,1,2,3,4,5}，下面（）是正确的。</p>
+</div></div><div style="color:gray;word-break:keep-all">(2分)</div></div><div><div><input type="radio" id="A" name="1402466180631646212" value="A" disabled=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>set(0,1,2,3,4,5)</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402466180631646212" value="B" disabled=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>set(&quot;0,1,2,3,4,5&quot;)</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402466180631646212" value="C" disabled=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>set(&quot;012345&quot;)</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402466180631646212" value="D" disabled="" checked=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>set(range(6))</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-13</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>已知x是一个列表，则以下选项中，不能访问列表最后一个元素的是（）。</p>
+</div></div><div style="color:gray;word-break:keep-all">(2分)</div></div><div><div><input type="radio" id="A" name="1402466385917661184" value="A" disabled=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>x[-1]</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402466385917661184" value="B" disabled=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>x[len(x)-1]</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402466385917661184" value="C" disabled=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>x[-1:]</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402466385917661184" value="D" disabled="" checked=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>x[-1:-2]</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-14</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>已知a=[1,2,3,4,5]，则a[-1:-3:-1]的值是（）。</p>
+</div></div><div style="color:gray;word-break:keep-all">(2分)</div></div><div><div><input type="radio" id="A" name="1402466385921855488" value="A" disabled="" checked=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>[5, 4]</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402466385921855488" value="B" disabled=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>[5, 4, 3]</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402466385921855488" value="C" disabled=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>[4, 5]</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402466385921855488" value="D" disabled=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>[3, 4, 5]</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-15</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>关于range()函数，下面说法不正确的是（）</p>
+</div></div><div style="color:gray;word-break:keep-all">(2分)</div></div><div><div><input type="radio" id="A" name="1402466385921855489" value="A" disabled=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>range()函数中的参数可以是一个，二个或三个</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402466385921855489" value="B" disabled="" checked=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>range(5)和range(0:5)是等价的</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402466385921855489" value="C" disabled=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>range(5)和range(0,5,１)是等价的</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402466385921855489" value="D" disabled=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>range(ord(&#39;a&#39;),ord(&#39;z&#39;))是合法的</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-16</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>已知 s=&quot;abcAB&quot;， 下面（ ）选项的运行结果是True</p>
+</div></div><div style="color:gray;word-break:keep-all">(2分)</div></div><div><div><input type="radio" id="A" name="1402466385921855490" value="A" disabled=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>s.islower()</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402466385921855490" value="B" disabled=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>s.isupper()</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402466385921855490" value="C" disabled="" checked=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>s.isalpha()</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402466385921855490" value="D" disabled=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>s.isdigit()</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-17</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>Python集合中的元素不可以是（）。</p>
+</div></div><div style="color:gray;word-break:keep-all">(2分)</div></div><div><div><input type="radio" id="A" name="1402466385921855491" value="A" disabled=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>数字</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402466385921855491" value="B" disabled=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>字符串</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402466385921855491" value="C" disabled=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>元组</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402466385921855491" value="D" disabled="" checked=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>列表</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-18</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>如下程序段的输出结果是（ ）。</p>
+<pre><code>def fun(x, *y):
+    print(y)
+fun(10, 20, 30)</code></pre>
+</div></div><div style="color:gray;word-break:keep-all">(2分)</div></div><div><div><input type="radio" id="A" name="1402466385926049792" value="A" disabled=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>20</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402466385926049792" value="B" disabled=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>30</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402466385926049792" value="C" disabled="" checked=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>(20, 30)</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402466385926049792" value="D" disabled=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>语法错误</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-19</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>已知x=[1, 2, 3]，y=[4, 5]，则x.append(y)后，x的值是（）。</p>
+</div></div><div style="color:gray;word-break:keep-all">(2分)</div></div><div><div><input type="radio" id="A" name="1402466501470740480" value="A" disabled=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>[1, 2, 3, 4, 5]</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402466501470740480" value="B" disabled=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>[[1, 2, 3], [4, 5]]</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402466501470740480" value="C" disabled=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>[[1, 2, 3], 4, 5]</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402466501470740480" value="D" disabled="" checked=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>[1, 2, 3, [4, 5]]</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">2-20</div><div style="overflow:auto;flex-grow:1"><div style="display:flex"><div style="flex-grow:1"><div class="rendered-markdown"><p>已知x=[11, 20, 6, 7, 15]，则x.sort(reverse=True)后，x的值是（）。</p>
+</div></div><div style="color:gray;word-break:keep-all">(2分)</div></div><div><div><input type="radio" id="A" name="1402466501470740481" value="A" disabled=""/><label style="margin-left:4px" for="A"><div style="display:flex"><div>A.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>[6, 7, 11, 15, 20]</p>
+</div></div></div></label></div><div><input type="radio" id="B" name="1402466501470740481" value="B" disabled="" checked=""/><label style="margin-left:4px" for="B"><div style="display:flex"><div>B.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>[20, 15, 11, 7, 6]</p>
+</div></div></div></label></div><div><input type="radio" id="C" name="1402466501470740481" value="C" disabled=""/><label style="margin-left:4px" for="C"><div style="display:flex"><div>C.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>[11, 20, 6, 7, 15]</p>
+</div></div></div></label></div><div><input type="radio" id="D" name="1402466501470740481" value="D" disabled=""/><label style="margin-left:4px" for="D"><div style="display:flex"><div>D.</div><div style="margin-left:4px"><div class="rendered-markdown"><p>[15, 7, 6, 20, 11]</p>
+</div></div></div></label></div></div></div></div></div><hr/><div style="display:flex;font-size:16px;margin-top:16px"><span style="flex-grow:1;font-weight:bold">填空题</span><span>得分：暂无</span><span style="margin-left:20px">总分：20</span></div><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">4-1</div><div style="overflow:auto;flex-grow:1"><div><div class="rendered-markdown"><p>下面语句的结果是什么？<span data-reactroot=""><input type="text" style="max-width:none;width:19.2ch;max-height:500px" value="3" disabled=""/><span style="margin-left:4px;color:gray">(2分)</span></span></p>
+<pre><code>print(len(set([1,2,1,2,3])))</code></pre>
+</div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">4-2</div><div style="overflow:auto;flex-grow:1"><div><div class="rendered-markdown"><p>下面程序的输出是<span data-reactroot=""><input type="text" style="max-width:none;width:19.2ch;max-height:500px" value="5" disabled=""/><span style="margin-left:4px;color:gray">(2分)</span></span> </p>
+<pre><code>text=&quot;four score and 7 years&quot;
+lenwords={s:len(s) for s in text.split()}
+print(lenwords[&quot;score&quot;])</code></pre>
+</div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">4-3</div><div style="overflow:auto;flex-grow:1"><div><div class="rendered-markdown"><p>已知d={&#39;a&#39;:1, &#39;b&#39;:2, &#39;c&#39;:3}，执行x, y, z = d.values()之后，x=<span data-reactroot=""><input type="text" style="max-width:none;width:19.2ch;max-height:500px" value="1" disabled=""/><span style="margin-left:4px;color:gray">(1分)</span></span> ，y=<span data-reactroot=""><input type="text" style="max-width:none;width:19.2ch;max-height:500px" value="2" disabled=""/><span style="margin-left:4px;color:gray">(1分)</span></span> ，z=<span data-reactroot=""><input type="text" style="max-width:none;width:19.2ch;max-height:500px" value="3" disabled=""/><span style="margin-left:4px;color:gray">(1分)</span></span> 。</p>
+</div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">4-4</div><div style="overflow:auto;flex-grow:1"><div><div class="rendered-markdown"><p>已知x = [11, 2, 33, 4]，则max(map(str, x))的值是<span data-reactroot=""><input type="text" style="max-width:none;width:19.2ch;max-height:500px" value="4|&#x27;4&#x27;|&quot;4&quot;" disabled=""/><span style="margin-left:4px;color:gray">(2分)</span></span> 。</p>
+</div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">4-5</div><div style="overflow:auto;flex-grow:1"><div><div class="rendered-markdown"><p>下面程序的输出是<span data-reactroot=""><input type="text" style="max-width:none;width:19.2ch;max-height:500px" value="11" disabled=""/><span style="margin-left:4px;color:gray">(2分)</span></span> 。</p>
+<pre><code>mat=[[i*3+j+1 for j in range(3)] for i in range(5)]
+print(mat)
+mattrans=[[row[col] for row in mat] for col in range(3)]
+print(mattrans[1][3])</code></pre>
+</div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">4-6</div><div style="overflow:auto;flex-grow:1"><div><div class="rendered-markdown"><p>下面程序的输出结果是<span data-reactroot=""><input type="text" style="max-width:none;width:19.2ch;max-height:500px" value="30" disabled=""/><span style="margin-left:4px;color:gray">(2分)</span></span> 。</p>
+<pre><code>dic1 = {&quot;姓名&quot;: &quot;xiaoming&quot;, &quot;年龄&quot;: 27} 
+dic2 = {&quot;性别&quot;: &quot;male&quot;,&quot;年龄&quot;: 30} 
+dic3 = {k:v for d in [dic1, dic2] for k,v in d.items()} 
+print(dic3[&quot;年龄&quot;])</code></pre>
+</div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">4-7</div><div style="overflow:auto;flex-grow:1"><div><div class="rendered-markdown"><p>表达式sum(list(range(1, 10, 3)))的值是（）<span data-reactroot=""><input type="text" style="max-width:none;width:19.2ch;max-height:500px" value="12" disabled=""/><span style="margin-left:4px;color:gray">(2分)</span></span> 。</p>
+</div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">4-8</div><div style="overflow:auto;flex-grow:1"><div><div class="rendered-markdown"><p>已知d={&#39;a&#39; : 1, &#39;b&#39; : 2, &#39;c&#39; : 3}，则d.pop(&#39;b&#39;)的值是<span data-reactroot=""><input type="text" style="max-width:none;width:19.2ch;max-height:500px" value="2" disabled=""/><span style="margin-left:4px;color:gray">(2分)</span></span> 。</p>
+</div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">4-9</div><div style="overflow:auto;flex-grow:1"><div><div class="rendered-markdown"><p>list与range函数（高教社，《Python编程基础及应用》习题4-14）
+<br>
+写出下述程序的执行结果</p>
+<pre><code class="language-python">print(list(range(2,10,3)))
+print(list(range(5)))
+print(list(range(10,-10,-5)))</code></pre>
+<p>执行结果第1行： <span data-reactroot=""><input type="text" style="max-width:none;width:19.2ch;max-height:500px" value="[2, 5, 8]" disabled=""/><span style="margin-left:4px;color:gray">(1分)</span></span>
+执行结果第2行： <span data-reactroot=""><input type="text" style="max-width:none;width:19.2ch;max-height:500px" value="[0, 1, 2, 3, 4]" disabled=""/><span style="margin-left:4px;color:gray">(1分)</span></span>
+执行结果第3行： <span data-reactroot=""><input type="text" style="max-width:none;width:19.2ch;max-height:500px" value="[10, 5, 0, -5]" disabled=""/><span style="margin-left:4px;color:gray">(1分)</span></span></p>
+</div></div></div></div></div><hr/><div style="display:flex;font-size:16px;margin-top:16px"><span style="flex-grow:1;font-weight:bold">程序填空题</span><span>得分：暂无</span><span style="margin-left:20px">总分：16</span></div><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">5-1</div><div style="overflow:auto;flex-grow:1"><div><div class="rendered-markdown"><p>函数repeat(ls)判定列表ls中是否包含重复元素，如果包含返回True，否则返回False。每一个列表中只要有一个元素出现两次，那么该列表即被判定为包含重复元素。</p>
+<p>然后使用该函数对n行字符串进行处理。最后统计包含重复元素的行数与不包含重复元素的行数。</p>
+<h1 id="输入格式">输入格式:</h1>
+<p>输入n，代表接下来要输入n行字符串。
+然后输入n行字符串，字符串之间的元素以空格间隔。</p>
+<h1 id="输出格式">输出格式:</h1>
+<p>True=包含重复元素的行数， False=不包含重复元素的行数。</p>
+<p>其中逗号后面有空格。</p>
+<h3 id="输入样例">输入样例:</h3>
+<pre><code class="language-in">5
+1 2 3 4 5
+1 3 2 5 4
+1 2 3 6 1
+1 2 3 2 1
+1 1 1 1 1</code></pre>
+<h3 id="输出样例">输出样例:</h3>
+<pre><code class="language-out">True=3, False=2</code></pre>
+<pre><code class="language-python">def repeat(ls):
+    s=set(ls)
+    <span data-reactroot=""><input type="text" style="max-width:none;width:22.8ch;max-height:500px" value="if len(s)==len(ls):" disabled=""/><span style="margin-left:4px;color:gray">(3分)</span></span>
+      return False
+    else:
+      return True
+
+n=int(input())
+countT=countF=0
+for i in range(n):
+    <span data-reactroot=""><input type="text" style="max-width:none;width:32.4ch;max-height:500px" value="if repeat(input().split()):" disabled=""/><span style="margin-left:4px;color:gray">(3分)</span></span>
+        countT+=1
+    else:
+        countF+=1
+print(<span data-reactroot=""><input type="text" style="max-width:none;width:49.199999999999996ch;max-height:500px" value="&#x27;True={}, False={}&#x27;.format(countT,countF)" disabled=""/><span style="margin-left:4px;color:gray">(4分)</span></span>)</code></pre>
+</div></div></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">5-2</div><div style="overflow:auto;flex-grow:1"><div><div class="rendered-markdown"><p>计算器最基本的功能是四则运算，下面希望通过定义一个函数，实现计算器的四则运算功能。要求输入数据为整数，其次除法运算时，结果保留2位小数。</p>
+<h4 id="输入样例">输入样例</h4>
+<pre><code>2
+3
+/</code></pre>
+<h4 id="输出样例">输出样例</h4>
+<pre><code>result:0.67</code></pre>
+<pre><code><span data-reactroot=""><input type="text" style="max-width:none;width:19.2ch;max-height:500px" value="def" disabled=""/><span style="margin-left:4px;color:gray">(1分)</span></span> oper(parm_one, parm_two):
+   # Please select an operator：+、-、*、/
+    operator = input()
+    if operator == &#39;+&#39;:
+        print(&quot;result:{}&quot;.format(parm_one+parm_two))
+    elif operator == &#39;-&#39;:
+        print(&quot;result:{}&quot;.format(parm_one - parm_two))
+    elif operator == &#39;*&#39;:
+        print(&quot;result:{}&quot;.format(parm_one * parm_two))
+    <span data-reactroot=""><input type="text" style="max-width:none;width:19.2ch;max-height:500px" value="elif" disabled=""/><span style="margin-left:4px;color:gray">(1分)</span></span> operator == &#39;/&#39;:
+        print(&quot;result:<span data-reactroot=""><input type="text" style="max-width:none;width:19.2ch;max-height:500px" value="{:.2f}" disabled=""/><span style="margin-left:4px;color:gray">(1分)</span></span>&quot;.format(parm_one / parm_two))
+
+
+num_one = <span data-reactroot=""><input type="text" style="max-width:none;width:19.2ch;max-height:500px" value="int" disabled=""/><span style="margin-left:4px;color:gray">(1分)</span></span>(input())
+num_two = <span data-reactroot=""><input type="text" style="max-width:none;width:19.2ch;max-height:500px" value="int" disabled=""/><span style="margin-left:4px;color:gray">(1分)</span></span>(input())
+<span data-reactroot=""><input type="text" style="max-width:none;width:26.4ch;max-height:500px" value="oper(num_one, num_two)" disabled=""/><span style="margin-left:4px;color:gray">(1分)</span></span>
+</code></pre>
+</div></div></div></div></div><hr/><div style="display:flex;font-size:16px;margin-top:16px"><span style="flex-grow:1;font-weight:bold">编程题</span><span>得分：45</span><span style="margin-left:20px">总分：45</span></div><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">7-1</div><div style="overflow:auto;flex-grow:1"><div style="margin-bottom:8px;display:flex"><div style="font-weight:bold">输入列表，求列表元素和(eval输入应用）</div><div style="margin-left:8px;color:gray">(10分)</div></div><div><div class="rendered-markdown"><p>在一行中输入列表，输出列表元素的和。</p>
+<h3 id="输入格式">输入格式:</h3>
+<p>一行中输入列表。</p>
+<h3 id="输出格式">输出格式:</h3>
+<p>在一行中输出列表元素的和。</p>
+<h3 id="输入样例">输入样例:</h3>
+<pre><code class="language-in">[3,8,-5]</code></pre>
+<h3 id="输出样例">输出样例:</h3>
+<pre><code class="language-out">6</code></pre>
+</div></div></div></div><div class="result" style="display:flex;margin-top:8px"><div style="min-width:80px;font-weight:bold">编译器</div><div style="flex-grow:1;overflow:auto">PYTHON3</div></div><div class="result" style="display:flex;margin-top:8px"><div style="min-width:80px;font-weight:bold">代码</div><div style="flex-grow:1;overflow:auto"><pre class="box">
+
+a=list(map(int,eval(input())))
+print(sum(a))</pre></div></div><div class="result" style="display:flex;margin-top:8px"><div style="min-width:80px;font-weight:bold">评测结果</div><div style="flex-grow:1;overflow:auto"><div><span style="color:#ff3b30">答案正确</span><span>（10 分）</span></div></div></div><div class="result" style="display:flex;margin-top:8px"><div style="min-width:80px;font-weight:bold">测试点得分</div><div style="flex-grow:1;overflow:auto"><table><thead><tr><th>测试点</th><th>结果</th><th>得分</th><th>耗时</th><th>内存</th></tr></thead><tbody><tr><td>0</td><td>答案正确</td><td>5</td><td>20.00 ms</td><td>3140 KB</td></tr><tr><td>1</td><td>答案正确</td><td>5</td><td>19.00 ms</td><td>3132 KB</td></tr></tbody></table></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">7-2</div><div style="overflow:auto;flex-grow:1"><div style="margin-bottom:8px;display:flex"><div style="font-weight:bold">字符替换</div><div style="margin-left:8px;color:gray">(15分)</div></div><div><div class="rendered-markdown"><p>本题要求编写程序，将输入字符串中的大写英文字母按以下对应规则替换，其他字符不变。(提示：转换表用元组实现）</p>
+<table>
+<thead>
+<tr>
+<th>原字母</th>
+<th>对应字母</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>Z</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>C</td>
+<td>X</td>
+</tr>
+<tr>
+<td>D</td>
+<td>W</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>X</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>B</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>A</td>
+</tr>
+</tbody></table>
+<h3 id="输入格式">输入格式:</h3>
+<p>在一行中输入字符串</p>
+<h3 id="输出格式">输出格式:</h3>
+<p>在一行中给出替换完成后的字符串。</p>
+<h3 id="输入样例">输入样例:</h3>
+<p>在这里给出一组输入。例如：</p>
+<pre><code class="language-in">This is a pen.</code></pre>
+<h3 id="输出样例">输出样例:</h3>
+<p>在这里给出相应的输出。例如：</p>
+<pre><code class="language-out">Ghis is a pen.</code></pre>
+</div></div></div></div><div class="result" style="display:flex;margin-top:8px"><div style="min-width:80px;font-weight:bold">编译器</div><div style="flex-grow:1;overflow:auto">PYTHON3</div></div><div class="result" style="display:flex;margin-top:8px"><div style="min-width:80px;font-weight:bold">代码</div><div style="flex-grow:1;overflow:auto"><pre class="box">
+
+a=input()
+s=&quot;&quot;
+for i in range(len(a)):
+	if a[i].isupper():
+		s=s+chr(155-(ord(a[i])))
+	else:
+		s=s+a[i]
+print(s)</pre></div></div><div class="result" style="display:flex;margin-top:8px"><div style="min-width:80px;font-weight:bold">评测结果</div><div style="flex-grow:1;overflow:auto"><div><span style="color:#ff3b30">答案正确</span><span>（15 分）</span></div></div></div><div class="result" style="display:flex;margin-top:8px"><div style="min-width:80px;font-weight:bold">测试点得分</div><div style="flex-grow:1;overflow:auto"><table><thead><tr><th>测试点</th><th>结果</th><th>得分</th><th>耗时</th><th>内存</th></tr></thead><tbody><tr><td>0</td><td>答案正确</td><td>5</td><td>23.00 ms</td><td>3064 KB</td></tr><tr><td>1</td><td>答案正确</td><td>5</td><td>31.00 ms</td><td>3128 KB</td></tr><tr><td>2</td><td>答案正确</td><td>5</td><td>26.00 ms</td><td>3140 KB</td></tr></tbody></table></div></div></div><hr/><div style="padding-bottom:8px;margin-top:12px"><div style="display:flex"><div style="margin-right:12px;white-space:nowrap">7-3</div><div style="overflow:auto;flex-grow:1"><div style="margin-bottom:8px;display:flex"><div style="font-weight:bold">不同年龄段票价输出</div><div style="margin-left:8px;color:gray">(20分)</div></div><div><div class="rendered-markdown"><p>有家电影院根据观众的年龄收取不同的票价：不到3岁的观众免费；3到12岁的观众票价为20元；超过12岁的观众票价为40元。请编写相应代码，询问用户的年龄，并指出其票价。在程序中需添加异常处理结构，当输入并非数字时，显示输入有误。</p>
+<h3 id="输入格式">输入格式:</h3>
+<p>可输入的数据包括：用户年龄。</p>
+<h3 id="输出格式">输出格式:</h3>
+<p>输出相应年龄段的票价。</p>
+<h3 id="输入样例">输入样例:</h3>
+<p>在这里给出两组输入样例</p>
+<p>第一组输入样例：</p>
+<pre><code class="language-in">2
+</code></pre>
+<p>第二组输入样例</p>
+<pre><code class="language-in">5
+</code></pre>
+<p>第三组输入样例</p>
+<pre><code class="language-in">a
+</code></pre>
+<h3 id="输出样例">输出样例:</h3>
+<p>第一组输出样例：</p>
+<pre><code class="language-out">免费观看
+</code></pre>
+<p>第二组输出样例</p>
+<pre><code class="language-out">你的票价是20元。
+</code></pre>
+<p>第三组输出样例</p>
+<pre><code class="language-out">输入有误
+</code></pre>
+</div></div></div></div><div class="result" style="display:flex;margin-top:8px"><div style="min-width:80px;font-weight:bold">编译器</div><div style="flex-grow:1;overflow:auto">PYTHON3</div></div><div class="result" style="display:flex;margin-top:8px"><div style="min-width:80px;font-weight:bold">代码</div><div style="flex-grow:1;overflow:auto"><pre class="box">try:
+    number=int(input())
+    if number&lt;3:
+        print(&quot;免费观看&quot;)
+    elif number in range(3,13):
+        print(&quot;你的票价是20元。&quot;)
+    else:
+        print(&quot;你的票价是40元。&quot;)
+except:
+    print(&quot;输入有误&quot;)</pre></div></div><div class="result" style="display:flex;margin-top:8px"><div style="min-width:80px;font-weight:bold">评测结果</div><div style="flex-grow:1;overflow:auto"><div><span style="color:#ff3b30">答案正确</span><span>（20 分）</span></div></div></div><div class="result" style="display:flex;margin-top:8px"><div style="min-width:80px;font-weight:bold">测试点得分</div><div style="flex-grow:1;overflow:auto"><table><thead><tr><th>测试点</th><th>结果</th><th>得分</th><th>耗时</th><th>内存</th></tr></thead><tbody><tr><td>0</td><td>答案正确</td><td>5</td><td>37.00 ms</td><td>3116 KB</td></tr><tr><td>1</td><td>答案正确</td><td>5</td><td>18.00 ms</td><td>3140 KB</td></tr><tr><td>2</td><td>答案正确</td><td>5</td><td>30.00 ms</td><td>3120 KB</td></tr><tr><td>3</td><td>答案正确</td><td>5</td><td>26.00 ms</td><td>3128 KB</td></tr></tbody></table></div></div></div><hr/></div></div>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+ezplot3('t*cos(t)','t*sin(t)','2*t',[0,6*pi])
