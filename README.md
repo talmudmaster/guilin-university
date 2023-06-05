@@ -13,7 +13,7 @@
 
 # 主要内容
 
-## 1. 课程作业及实验报告(计算机专业课)
+## 1. 专业课 | 课程作业、实验报告 及 部分考试题
 
 1.  [大一上](课程作业及实验报告/大一/大一上)  
 计算机科学导论、微积分1
@@ -30,15 +30,11 @@ Mybatis框架技术、SSM项目实战、VUE框架技术、软件测试技术、�
 7.  [其他](课程作业及实验报告/其他)  
 计算机组成
 
-## 2. 编程比赛(笔记、题目、题解、代码)
+## 2. 编程比赛资料(笔记、题目、题解、代码)
 
-1.  [牛客网编程笔记题解](https://www.nowcoder.com/users/730785264)
+1.  Gitee：[桂林学院编程比赛资料](https://gitee.com/talmudmaster/Programming_Competition_Materials)
 
-2.  [题目](编程比赛/题目)
-
-3.  [题解](编程比赛/题解)
-
-4.  [代码](编程比赛/代码)
+2.  GitHub：[Programming_Competition_Materials](https://github.com/talmudmaster/Programming_Competition_Materials) 
 
 ## 3. 学科竞赛(数模、数赛)
 
