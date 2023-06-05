@@ -74,7 +74,7 @@ Mybatis框架技术、SSM项目实战、VUE框架技术、软件测试技术、�
 
 4.  [CSDN开发笔记](https://blog.csdn.net/weixin_45940369/category_12316374.html)  
 
-![大计赛](https://s1.ax1x.com/2023/05/29/p9Xvncn.png)
+![大计赛](https://s1.ax1x.com/2023/06/06/pCP3bwD.png)
 
 # 参与贡献
 
